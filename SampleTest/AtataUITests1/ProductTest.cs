@@ -18,10 +18,10 @@ namespace SampleProject
         Login();
         }
 
-        [Test,Order(2)]
+        [Test]
         public void DeleteUsingJSConfirm()
         {
-            Go.To<ProductsPage>(url: "/products").Header.Should.Equal("Products")
+            Go.To<ProductsPage>()
             .Products.Rows.Count.Get(out int count).AggregateAssert(page => page
             .Products.Rows[x => x.Name == "Armchair"].DeleteUsingJSConfirm.Click()
             .Products.Rows[x => x.Name == "Armchair"].Should.Not.BePresent()
@@ -30,10 +30,10 @@ namespace SampleProject
             Thread.Sleep(5000);
         }
 
-        [Test, Order(1)]
+        [Test]
         public void DeleteUsingBSModelConfirm()
         {
-            Go.To<ProductsPage>(url: "/products").Header.Should.Equal("Products")
+            Go.To<ProductsPage>()
            .Products.Rows.Count.Get(out int count).AggregateAssert(page => page
             .Products.Rows[x => x.Name == "Armchair"].DeleteUsingBSModel()
             .Products.Rows[x => x.Name == "Armchair"].Should.Not.BePresent()
@@ -44,10 +44,10 @@ namespace SampleProject
         }
 
 
-        [Test, Order(3)]
+        [Test]
         public void DeleteUsingJqueryConfirm()
         {
-            Go.To<ProductsPage>(url: "/products").Header.Should.Equal("Products")
+            Go.To<ProductsPage>()
            .Products.Rows.Count.Get(out int count).AggregateAssert(page => page
             .Products.Rows[x => x.Name == "Armchair"].DeleteUsingJQuery()
             .Products.Rows[x => x.Name == "Armchair"].Should.Not.BePresent()

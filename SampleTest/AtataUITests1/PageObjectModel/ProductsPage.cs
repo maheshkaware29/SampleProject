@@ -4,6 +4,8 @@ using _ = SampleProject.PageObjectModel.ProductsPage;
 
 namespace SampleProject.PageObjectModel
 {
+    [Url("products")]
+    [VerifyH1("Products")]
     public class ProductsPage : Page<_>
     {
         public H1<_> Header { get; private set; }
